@@ -15,3 +15,15 @@ func AssertEqualString(t *testing.T, want, got string) {
 		t.Errorf("want %s, got %s", want, got)
 	}
 }
+
+func AssertEqualStrings(t *testing.T, want, got []string) {
+	t.Helper()
+	if len(want) != len(got) {
+		t.Errorf("want %d length, got %d length", len(want), len(got))
+	}
+	for i := range want {
+		if want[i] != got[i] {
+			t.Errorf("want %s, got %s", want[i], got[i])
+		}
+	}
+}

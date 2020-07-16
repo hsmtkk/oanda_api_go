@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/hsmtkk/oanda_api_go/cmd/oanda/accounts"
-	"github.com/hsmtkk/oanda_api_go/cmd/oanda/instruments"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -14,7 +13,6 @@ func main() {
 		Use: "oanda",
 	}
 	command.AddCommand(accounts.Command)
-	command.AddCommand(instruments.Command)
 	command.PersistentFlags().BoolP("verbose", "v", false, "verbose output")
 	viper.BindPFlag("verbose", command.PersistentFlags().Lookup("verbose"))
 	if err := command.Execute(); err != nil {
